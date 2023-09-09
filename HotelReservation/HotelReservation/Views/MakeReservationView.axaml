@@ -1,0 +1,106 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="HotelReservation.MakeReservationView">
+	
+	<Grid Grid.IsSharedSizeScope="True">
+	  <Grid.RowDefinitions>
+		  <RowDefinition Height="auto"/>
+		  <RowDefinition Height="auto"/>
+		  <RowDefinition Height="auto"/>
+		  <RowDefinition Height="auto"/>
+		  <RowDefinition Height="auto"/>
+	  </Grid.RowDefinitions>
+	  
+	  <TextBlock 
+		  Text="Make Reservation"
+		  Style="{StaticResource Header}" 
+		  Grid.Row="0"/>
+
+	  <Grid Grid.Row="1" Margin="0 25 0 0" >
+		  <Grid.RowDefinitions>
+			  <RowDefinition Height="auto"/>
+			  <RowDefinition Height="auto"/>
+		  </Grid.RowDefinitions>
+
+		  <TextBlock Grid.Row0="0" Text="Username"/>
+		  <TextBlock 
+			  Grid.Row0="1" 
+			  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+			  Margin="0 5 0 0" />
+	  </Grid>
+
+	  <Grid Grid.Row="2" Margin="0 10 0 0">
+		  <Grid.RowDefinitions>
+			  <RowDefinition Height="auto"/>
+			  <RowDefinition Height="auto"/>
+		  </Grid.RowDefinitions>
+		  <Grid.ColumnDefinitions>
+			  <ColumnDefinition Width="auto" SharedSizeGroup="FirstColumn"/>
+			  <ColumnDefinition Width="auto" SharedSizeGroup="SecondColumn"/>
+		  </Grid.ColumnDefinitions>
+
+		  <TextBlock 
+			  Grid.Row0="0" 
+			  Grid.Column="0" 
+			  Text="Floor No."/>
+		  <TextBox
+			  Grid.Row0="1"
+			  Grid.Column="0"
+			  Text="{Binding FloorNumber UpdateSourceTrigger=PropertyChanged}"
+			  Margin="0 5 0 0" />
+
+		  <TextBlock
+			  Grid.Row0="0"
+			  Grid.Column="1"
+			  Margin="10 0 0 0"
+			  Text="Room No."/>
+		  <TextBox
+			  Grid.Row0="1"
+			  Grid.Column="1"
+			  Text="{Binding RoomNumber UpdateSourceTrigger=PropertyChanged}"
+			  Margin="10 5 0 0" />
+	  </Grid>
+
+	  <Grid Grid.Row="3" Margin="0 10 0 0">
+		  <Grid.RowDefinitions>
+			  <RowDefinition Height="auto"/>
+			  <RowDefinition Height="auto"/>
+		  </Grid.RowDefinitions>
+		  <Grid.ColumnDefinitions>
+			  <ColumnDefinition Width="auto" SharedSizeGroup="FirstColumn"/>
+			  <ColumnDefinition Width="auto" SharedSizeGroup="SecondColumn"/>
+		  </Grid.ColumnDefinitions>
+
+		  <TextBlock
+			  Grid.Row0="0"
+			  Grid.Column="0"
+			  Text="Start Date"/>
+		  <DatePicker
+			  Grid.Row0="1"
+			  Grid.Column="0"
+			  SelectedDate="{Binding StartDate UpdateSourceTrigger=PropertyChanged}"
+			  Margin="0 5 0 0" />
+
+		  <TextBlock
+			  Grid.Row0="0"
+			  Grid.Column="1"
+			  Margin="10 0 0 0"
+			  Text="End Date"/>
+		  <DatePicker
+			  Grid.Row0="1"
+			  Grid.Column="1"
+			  SelectedDate="{Binding EndDate UpdateSourceTrigger=PropertyChanged}"
+			  Margin="10 5 0 0" />
+	  </Grid>
+
+	  <StackPanel Grid.Row0="4" 
+				  Margin="0 25 0 0" 
+				  Orientation="Horizontal">
+		  <Button Command="{Binding SubmitCommand}" Content="Submit" />
+		  <Button Command="{Binding CancelCommand}" Margin="5 0 0 0" Content="Cancel"/>
+	  </StackPanel>
+  </Grid>
+</UserControl>
